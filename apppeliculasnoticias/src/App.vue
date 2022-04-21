@@ -4,7 +4,7 @@
     <b-navbar type="dark" variant="dark">
       <b-navbar-nav>
         <b-nav-item to="/listpeliculas">Peliculas</b-nav-item>
-        <b-nav-item to="/">Noticias</b-nav-item>
+        <b-nav-item to="/listnoticias">Noticias</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 

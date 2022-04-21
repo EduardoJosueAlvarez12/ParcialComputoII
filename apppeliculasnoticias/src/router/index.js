@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import PeliculasView from '../views/PeliculasView.vue'
-
+import NoticiasView from '../views/NoticiasView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,6 +15,11 @@ const routes = [
     path: '/listpeliculas',
     name: 'PeliculasView',
     component: PeliculasView
+  },
+  {
+    path: '/listnoticias',
+    name: 'NoticiasView',
+    component: NoticiasView
   },
   {
     path: '/about',
