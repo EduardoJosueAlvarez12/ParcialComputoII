@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\Peliculas;
-use \App\Http\Resources\Peliculas as PeliculasResource;
+use \App\Models\Noticias;
+use \App\Http\Resources\Noticias as NoticiasResource;
 
-class PeliculasController extends Controller
+class NoticiasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class PeliculasController extends Controller
     public function index()
     {
         //
-        $peliculas = Peliculas::all();
+        $noticias = Noticias::all();
 
-        return PeliculasResource::collection($peliculas);
+        return NoticiasResource::collection($noticias);
     }
 
     /**
@@ -29,6 +29,7 @@ class PeliculasController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -40,19 +41,17 @@ class PeliculasController extends Controller
     public function store(Request $request)
     {
         //
-        $pelicula = $request -> isMethod('put') ? Peliculas::findOrFail($request -> id) : new Peliculas;
+        $noticia = $request -> isMethod('put') ? Noticias::findOrFail($request -> id) : new Noticias;
+        
+        $noticia->id =$request->input('id');
+        $noticia->Titulo = $request->input('Titulo');
+        $noticia->Descripcion = $request->input('Descripcion');
+        $noticia->Anio = $request->input('Anio');
+        $noticia->Escritor = $request->input('Escritor');
 
-        $pelicula->id = $request->input('id');
-        $pelicula->Titulo = $request->input('Titulo');
-        $pelicula->Genero = $request->input('Genero');
-        $pelicula->Anio = $request->input('Anio');
-        $pelicula->Director = $request->input('Director');
-        $pelicula->Productor = $request->input('Productor');
-
-        if($pelicula->save()){
-            return new PeliculasResource($pelicula);
+        if($noticia->save()){
+            return new NoticiasResource($noticia);
         }
-
     }
 
     /**
@@ -64,9 +63,8 @@ class PeliculasController extends Controller
     public function show($id)
     {
         //
-        $pelicula = Peliculas::findOrFail($id);
-
-        return new PeliculasResource($pelicula);
+        $noticia = Noticias::findOrFail($id);
+        return new NoticiasResource($noticia);
     }
 
     /**
@@ -101,10 +99,9 @@ class PeliculasController extends Controller
     public function destroy($id)
     {
         //
-        $pelicula = Peliculas::findOrFail($id);
-
-        if($pelicula->delete()){
-            return new PeliculasResource($pelicula);
-        }
+        $noticia = Noticias::findOrFail($id);
+        if($noticia->delete()){
+            return new NoticiasResource($noticia);
     }
+}
 }

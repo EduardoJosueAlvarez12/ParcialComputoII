@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('Titulo');
             $table->string('Descripcion');
-            $table->string('Anio');
+            $table->integer('Anio');
             $table->string('Escritor');
             $table->timestamps();
         });

@@ -18,8 +18,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Rutas para la tabla peliculas
 Route::get('peliculas', 'App\Http\Controllers\PeliculasController@index');
 Route::get('pelicula/{id}', 'App\Http\Controllers\PeliculasController@show');
 Route::post('pelicula', 'App\Http\Controllers\PeliculasController@store');
 Route::put('pelicula', 'App\Http\Controllers\PeliculasController@store');
 Route::delete('pelicula/{id}', 'App\Http\Controllers\PeliculasController@destroy');
+
+//Rutas para la tabla noticias
+Route::get('noticias','App\Http\Controllers\NoticiasController@index');
+Route::get('noticia/{id}','App\Http\Controllers\NoticiasController@show');
+Route::post('noticia','App\Http\Controllers\NoticiasController@store');
+Route::put('noticia','App\Http\Controllers\NoticiasController@store');
+Route::delete('noticia/{id}', 'App\Http\Controllers\NoticiasController@destroy');
